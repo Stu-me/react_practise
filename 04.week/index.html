@@ -6,27 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="one" placeholder="enter the  1st number"><br>
+
+
+    <input type="text" oninput="populateDiv()" id="one" placeholder="enter the  1st number"><br>
     <br>
-    <input type="text" id="two" placeholder="enter the 2nd number"><br> 
+    <input type="text" oninput="populateDiv()" id="two" placeholder="enter the 2nd number"><br> 
     <br>
-    <input type="button" value="letsgo" id="btn">
+    <!-- <input type="button" value="letsgo" id="btn"> -->
     <br>
     <div id="result"></div>
-    <script>
-        let valFirst = document.querySelector('#one');
-        let valSecond = document.querySelector('#two');
+
+     <script>
+
         let clicker = document.querySelector('#btn');
         let result = document.querySelector('#result');
+        const port = 7000;
 
-        const calc = ()=>{
-            let sum = parseInt(valFirst.value) + parseInt(valSecond.value);
-            result.innerHTML = sum;
+        const populateDiv = async()=>{
+        let valFirst = document.querySelector('#one');
+        let valSecond = document.querySelector('#two');
+           const res=  await fetch(`http://localhost:${port}/sum/${valFirst.value}/${valSecond.value}`);
+
+           const data = await res.json();
+           console.log(data);
+           result.innerHTML = data.sum;
+           
         }
-        clicker.addEventListener('click',()=>{
-            calc();
-        })
 
     </script>
+
+   
 </body>
 </html>

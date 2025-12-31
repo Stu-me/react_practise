@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="principal" placeholder="enter the principal amount"><br><br>
+    <input type="text" id="rate"  placeholder="enter the rate of interest"><br><br>
+    <input type="text" id="year" placeholder="enter the years"><br><br>
+    <input type="button" value="Calculate" id="btn">
+    <div id="results"></div>
+    <script>
+        const port = 8000;
+        const principal = document.querySelector('#principal');
+        const rate = document.querySelector('#rate');
+        const year = document.querySelector('#year');
+        const button = document.querySelector('#btn');
+        const results = document.querySelector('#results');
+
+        const SI = async()=>{
+            const p = parseInt(principal.value);
+            const r = parseInt(rate.value);
+            const t = parseInt(year.value);
+            
+            const result = await fetch(`http://localhost:${port}/interest/${p}/${r}/${t}`);
+            const si = await result.json();
+            results.innerHTML = si.simpleInterest;
+        }
+
+        button.addEventListener('click',SI);
+        
+    </script>
+</body>
+</html>
