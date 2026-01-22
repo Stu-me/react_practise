@@ -3,13 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-import tApp from './trial.jsx'
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <tApp />
-    we are in the main.jsx
-    so intresting we can have used any thing to print the data lets try something else 
   </StrictMode>,
 )
