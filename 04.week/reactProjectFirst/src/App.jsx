@@ -21,7 +21,8 @@ function App() {
  );
 
  function addTodo() { // this task expand the todo and add my task at the end
-  setTodos([...todos,{
+  setTodos([...todos,{ // here we write setTodos cause it is the only thing that tells the react that 
+    // to render otherwise it would not render any updates 
     title:"newly added one",
     description:"lets see how thing work here"
   }])
