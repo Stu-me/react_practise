@@ -1,4 +1,3 @@
-const express = require('express')
 const Router = require('router');
 const router = Router();
 
@@ -10,6 +9,10 @@ router.post('/',(req,res)=>{
     const name = req.body.name;
     const job = req.body.job;
     res.send("his name is " + name + "and his job is " + job);
+})
+
+router.get('/look',(req,res)=>{
+    res.send("yeah man thing is easier and cleaner in the folder structure ")
 })
 
 module.exports = router;
