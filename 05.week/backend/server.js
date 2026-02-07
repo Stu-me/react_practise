@@ -1,21 +1,16 @@
 const express = require('express');
+const Router = require('router');
 const env = require('dotenv');
-
-
-const app  = express();
 require('dotenv').config();
+
+
+const router = Router()
+const app  = express();
 const port = process.env.PORT;
 
+app.use(express.json()); // add my first universal middleware 
 
-app.get('/todo',(req,res)=>{
-    res.send("we made a basic server and ofc we will not be paid for this shit until I I I scale up ")
-})
-
-app.post('/todo',(req,res)=>{
-    const name = req.body.name;
-    res.send("his name is " + name);
-});
-
+app.use('/todo',require('./routers/todoRouter'))
 
 app.listen(port,()=>{
     console.log('young man the server is started');
