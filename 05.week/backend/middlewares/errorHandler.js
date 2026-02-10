@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const  statusCode = require('../statusCode');
 
 
-const errorHandler =async (err,req,res,next)=>{
+const errorHandler = asyncHandler(async(err,req,res,next)=>{
     switch(err){
         case statusCode.VALIDATION_ERROR:
             console.log(" validation Error -- check your inputs again ");
@@ -23,6 +23,6 @@ const errorHandler =async (err,req,res,next)=>{
          console.log(err);
          break;
     }
-};
+});
 
 module.exports = errorHandler;
