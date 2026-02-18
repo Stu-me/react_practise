@@ -1,16 +1,18 @@
 const Router = require('router');
 const router = Router();
-const {getTodo,postTodo , errorTodo} = require('../controllers/todoControllers')
+const {getTodo, postTodo , errorTodo , putTodo ,importantTodo , starTodo} = require('../controllers/todoControllers')
 
 
 router.get('/',getTodo)
 
 router.post('/',postTodo)
 
+router.put('/:id', putTodo)
+
 router.get('/error',errorTodo)
 
-router.get('/look',(req,res)=>{
-    res.send("yeah man thing is easier and cleaner in the folder structure ")
-})
+router.get('/important' , importantTodo)
+
+router.get('/star',starTodo)
 
 module.exports = router;

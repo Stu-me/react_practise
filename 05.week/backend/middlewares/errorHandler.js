@@ -20,7 +20,7 @@ const errorHandler = asyncHandler(async(err,req,res,next)=>{
             console.log("Forbidden");
             break;
         default :
-         console.log(err);
+         console.log("unknown error ");
          break;
     }
 });

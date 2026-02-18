@@ -1,9 +1,12 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const todoSchema = new Schema({
     title:String,
-    content:String
+    description:String,
+    completed:Boolean,
+    important:Boolean,
+    star:Boolean
 });
-
-module.exports = todoSchema;
+const todo = mongoose.model('todo',todoSchema)
+module.exports = todo;
