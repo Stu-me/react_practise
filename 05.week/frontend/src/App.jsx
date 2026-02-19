@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Example from './pricing'
 import CreateTodo from './components/createTodo'
 import { Todos } from './components/todos'
 
@@ -9,7 +8,17 @@ function App() {
   return (
     <div className='bg-gray-400 w-full h-full'>
       <CreateTodo></CreateTodo>
-      <Todos></Todos>
+      <Todos todos={[
+        {title:"asd",
+          description:"asdfdfd",
+          completed:false
+        },
+        {
+          title:"bsd",
+          description:"by tko",
+          completed:false
+        }
+        ]}></Todos>
     </div>
   )
 }
