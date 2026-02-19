@@ -7,7 +7,7 @@ router.get('/',getTodo)
 
 router.post('/',postTodo)
 
-router.put('/:id', putTodo)
+router.put('/', putTodo)
 
 router.get('/error',errorTodo)
 
