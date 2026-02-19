@@ -4,9 +4,12 @@ const todoSchema = require('../model/todoModel');
 const { log } = require('async');
 
 
-function getTodo(req, res) {
-   res.send("welcome in Todo")
-}
+const  getTodo = asyncHandler(async(req, res)=>{
+   const allTodos = await todoSchema.find({});
+   res.json({
+      allTodos
+   })
+})
 
 // creating Todo
 const postTodo = asyncHandler(async (req, res) => {
@@ -74,7 +77,7 @@ const importantTodo = asyncHandler(async(req, res)=>{
    // list down all the important todos
 })
 
-const  starTodo = asyncHandler(async(req, res) {
+const  starTodo = asyncHandler(async(req, res)=>{
    const starTodos = await todoSchema.find({star:TRUE})
 })
 

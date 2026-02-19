@@ -3,22 +3,20 @@ import CreateTodo from './components/createTodo'
 import { Todos } from './components/todos'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([]);
 
+  fetch('http://localhost:8080/todo')
+  .then(async (res)=>{
+    const data = await res.json();
+    setTodos(data.allTodos); // sending the arrays 
+  })
+
+  console.log(todos);
+  
   return (
     <div className='bg-gray-400 w-full h-full'>
       <CreateTodo></CreateTodo>
-      <Todos todos={[
-        {title:"asd",
-          description:"asdfdfd",
-          completed:false
-        },
-        {
-          title:"bsd",
-          description:"by tko",
-          completed:false
-        }
-        ]}></Todos>
+      <Todos todos={todos}></Todos>
     </div>
   )
 }
