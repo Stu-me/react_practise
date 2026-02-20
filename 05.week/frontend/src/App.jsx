@@ -7,6 +7,8 @@ function App() {
 
   fetch('http://localhost:8080/todo')
   .then(async (res)=>{
+    console.log(res);
+    
     const data = await res.json();
     setTodos(data.allTodos); // sending the arrays 
   })
